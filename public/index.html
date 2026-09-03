@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As-Sahifah — Authentic Hadith, Clearly Sourced</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-theme="light">
+
+<header class="site">
+  <div class="wrap nav-row">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3 C10 3 6 8 6 14 C6 21 11 27 16 29 C21 27 26 21 26 14 C26 8 22 3 16 3 Z" stroke="#A57A25" stroke-width="1.4"/>
+        <path d="M16 8 L16 22 M11 12 L21 12" stroke="#A57A25" stroke-width="1.2"/>
+      </svg>
+      <span>As-Sahifah</span><span class="brand-ar">الصحيفة</span>
+    </div>
+    <nav class="primary">
+      <a href="#collections">Collections</a>
+      <a href="#topics">Topics</a>
+      <a href="#browse">Search Hadith</a>
+      <a href="#library">Full Library</a>
+      <a href="#trust">Verification</a>
+    </nav>
+    <div class="nav-tools">
+      <select class="lang-select" id="uiLangSelect" aria-label="Interface language">
+        <option value="en">EN</option>
+        <option value="ur">اردو</option>
+        <option value="ar">العربية</option>
+      </select>
+      <button class="icon-btn" id="favToggle" aria-label="Open favorites" title="Favorites">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Dark / light mode">
+        <svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner wrap">
+    <div class="hero-eyebrow-line"><span class="rule"></span> بسم الله الرحمن الرحيم</div>
+    <h1>The words of the Prophet ﷺ, traced back to their source.</h1>
+    <p class="lede">Read and understand authentic Hadith from Sahih al-Bukhari, Sahih Muslim, Sunan Abu Dawood and Jami` at-Tirmidhi — every narration shown with its book, chapter, number, and authenticity grading.</p>
+    <form class="hero-search" id="heroSearchForm">
+      <input type="text" id="heroSearchInput" placeholder="Search by topic, keyword, Arabic phrase, or Hadith number…" aria-label="Search Hadith">
+      <button type="submit">Search</button>
+    </form>
+    <div class="hero-badges">
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Sourced from the four collections only</span>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>No AI-generated religious text</span>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Arabic, English &amp; Urdu</span>
+    </div>
+  </div>
+</div>
+
+<section id="daily">
+  <div class="wrap">
+    <div class="daily-wrap"><div class="daily-grid" id="dailyHadithMount"></div></div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">المجموعات</span><h2>The four collections</h2><p class="section-sub">Every Hadith on this site is drawn from one of these classical, universally recognised collections.</p></div>
+    </div>
+    <div class="collections-grid" id="collectionsMount"></div>
+  </div>
+</section>
+
+<section id="topics">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">الموضوعات</span><h2>Browse by topic</h2><p class="section-sub">Fifteen themes drawn from daily life and worship — tap a topic to see every matching Hadith across all four books below.</p></div>
+    </div>
+    <div class="topics-grid" id="topicsMount"></div>
+  </div>
+</section>
+
+<section id="browse" class="browse-panel">
+  <div class="wrap" style="padding-top:76px; padding-bottom:76px;">
+    <div class="section-head"><div><span class="kicker">البحث</span><h2>Search &amp; filter Hadith</h2></div></div>
+    <div class="filters-row">
+      <div class="search-mini">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="browseSearch" placeholder="Keyword, Arabic text, book, chapter, or Hadith number…">
+      </div>
+      <select id="filterCollection"><option value="">All collections</option></select>
+      <select id="filterTopic"><option value="">All topics</option></select>
+      <select id="filterAuth"><option value="">Any authenticity</option></select>
+      <button class="clear-filters" id="clearFilters">Clear filters</button>
+    </div>
+    <p class="results-count" id="resultsCount"></p>
+    <div class="hadith-list" id="hadithListMount"></div>
+    <button class="lib-load-more" id="browseLoadMoreBtn" style="display:none;">Show more</button>
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="kicker">المكتبة الكاملة</span><h2>Read the complete collections</h2>
+        <p class="section-sub">This calls the backend, which fetches and caches the complete Arabic, English and Urdu text of a collection from the verified open Hadith dataset (mirrors Sunnah.com).</p>
+      </div>
+    </div>
+    <div class="lib-tabs" id="libTabs"></div>
+    <div class="lib-status-box" id="libStatusBox"></div>
+    <div id="libErrorMount"></div>
+    <div id="libControlsMount"></div>
+    <p class="results-count" id="libResultsCount"></p>
+    <div class="hadith-list" id="libListMount"></div>
+    <button class="lib-load-more" id="libLoadMoreBtn" style="display:none;">Show more</button>
+  </div>
+</section>
+
+<section id="trust" class="trust-section">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--gold-soft);">الأمانة والتوثيق</span>
+    <h2>Trust and verification, by design</h2>
+    <div class="trust-grid">
+      <div class="trust-item"><h4>Nothing is generated</h4><p>Hadith text, translations and chain references are never written or altered by AI. Each entry is matched to its original wording in the source collection before it is published here.</p></div>
+      <div class="trust-item"><h4>Full attribution, always</h4><p>Collection, book, chapter, Hadith number and grading are shown on every single Hadith — not just on a details page — so you always know exactly where a narration comes from.</p></div>
+      <div class="trust-item"><h4>AI, only as a librarian</h4><p>Where smart search is used, it only helps locate existing, verified Hadith faster. It never composes religious content, and every result links back to its original reference.</p></div>
+    </div>
+    <div class="trust-notice">
+      <strong>How the content on this site is sourced:</strong> the homepage, topics, and Daily Hadith use a small, hand-checked set of well-known narrations, served instantly by the backend. The <a href="#library" style="color:var(--gold-soft);">Full Library</a> section calls a backend endpoint that downloads and caches the complete Arabic, English and Urdu text of a collection from the open-source Hadith API dataset (mirroring Sunnah.com), the first time it is requested. Nothing on this site is written or altered by AI. For research, legal rulings (fatwa), or academic citation, always verify wording and numbering against a printed critical edition or Sunnah.com, Dorar.net, or Islamweb directly.
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;"><span>As-Sahifah</span><span class="brand-ar">الصحيفة</span></div>
+        <p style="color:var(--ink-soft); font-size:14px; max-width:320px; line-height:1.7;">A calm, careful place to read and understand authentic Hadith — built for Muslims and non-Muslims alike, in Arabic, English and Urdu.</p>
+      </div>
+      <div><h5>Collections</h5><ul>
+        <li><a href="#" data-open-lib-collection="bukhari">Sahih al-Bukhari</a></li>
+        <li><a href="#" data-open-lib-collection="muslim">Sahih Muslim</a></li>
+        <li><a href="#" data-open-lib-collection="abudawud">Sunan Abu Dawood</a></li>
+        <li><a href="#" data-open-lib-collection="tirmidhi">Jami` at-Tirmidhi</a></li>
+      </ul></div>
+      <div><h5>Explore</h5><ul>
+        <li><a href="#browse">Search Hadith</a></li>
+        <li><a href="#topics">Browse by topic</a></li>
+        <li><a href="#trust">Verification policy</a></li>
+        <li><a href="#" id="footerFavLink">My favorites</a></li>
+      </ul></div>
+      <div><h5>Reference sources</h5><ul>
+        <li><a href="https://sunnah.com" target="_blank" rel="noopener">Sunnah.com</a></li>
+        <li><a href="https://dorar.net" target="_blank" rel="noopener">Dorar.net</a></li>
+        <li><a href="https://islamweb.net" target="_blank" rel="noopener">Islamweb.net</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 As-Sahifah. Compiled for reference; always verify against primary sources.</span>
+      <span>Built with care — نسأل الله القبول</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="favDrawer">
+  <div class="drawer-head">
+    <h3 style="font-size:18px;">My favorites</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Close">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-list" id="drawerList"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

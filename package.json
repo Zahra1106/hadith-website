@@ -1,0 +1,18 @@
+{
+  "name": "as-sahifah-hadith-site",
+  "version": "1.0.0",
+  "description": "A trustworthy Hadith reading website with an Express backend that caches verified Hadith data and a static frontend.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "compression": "^1.7.4"
+  }
+}
